@@ -1,0 +1,16 @@
+type Query {
+    coordinates:String
+    locations:String
+
+}
+
+type Location {
+
+   Latitude:Float
+    Longitude:Float
+}
+type Coordinates{
+
+    Latitude:Float
+    Longitude:Float
+}
