@@ -1,16 +1,34 @@
 type Query {
-    coordinates:String
-    locations:String
+    getAll:[Organization]
+    getAllEmp:[Employee]
+    getAllProject:[Project]
+    findByProjectId(ProjectId:Int):[Project]
+}
+type Mutation{
+    newProject( ProjectName:String ,ProjectId:Int ) : Project
+    newEmployee(UserName:String,Password:String ,Email:String, UserId:Int): Employee
+    newOrg(OrgName:String, OrganizationId:Int , Website: String ): Organization
+    deleteProject(ProjectId: Int ): Boolean
+    updateProject(ProjectName: String , ProjectId: Int): Boolean
+    deleteEmployee(UserId:Int): Boolean
+    updateEmployee(UserName:String , Password:String, Email:String, UserId:Int): Boolean
+    updateOrg(OrgName:String, OrganizationId:Int , Website: String): Boolean
+    deleteOrg(OrganizationId : Int) : Boolean
 
 }
-
-type Location {
-
-   Latitude:Float
-    Longitude:Float
+type Employee {
+    UserName: String
+    Password: String
+    Email: String
+    UserId: Int
 }
-type Coordinates{
-
-    Latitude:Float
-    Longitude:Float
+type Organization{
+    OrgName: String
+    OrganizationId: Int
+    Website: String
 }
+type Project{
+    ProjectName: String
+    ProjectId: Int
+}
+
